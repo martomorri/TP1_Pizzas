@@ -2,14 +2,14 @@ using System;
 
 public class Pizza
 {
-    public int _id { get; private set; }
-    public string _nombre { get; private set; }
-    public double _importe { get; private set; }
-    public bool _libreGluten { get; private set; }
-    public string _descripcion { get; private set; }
-    public Pizza(int id, string nombre, double importe, bool libreGluten, string descripcion)
+    public int _Id { get; private set; }
+    public string _Nombre { get; private set; }
+    public bool _LibreGluten { get; private set; }
+    public float _Importe { get; private set; }
+    public string _Descripcion { get; private set; }
+    public Pizza(int Id, string Nombre, bool LibreGluten, float Importe, string Descripcion)
     {
-        _id = id; _nombre = nombre; _importe = importe; _libreGluten = libreGluten; _descripcion = descripcion;
+        _Id = Id; _Nombre = Nombre; _LibreGluten = LibreGluten; _Importe = Importe; _Descripcion = Descripcion;
     }
     public Pizza() { }
 }
