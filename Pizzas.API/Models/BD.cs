@@ -6,11 +6,10 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;
-using Pizzas.API.Models;
 
 public static class BD
 {
-    private static string CONNECTION_STRING = @"Persist Security Info=False;User ID=Pizzas;password=VivaLaMuzza123;Initial Catalog=DAI-Pizzas;Data Source=.;";
+    private static string CONNECTION_STRING = @"Server=A-PHZ2-AMI-007; DataBase=Pizzas; Trusted_Connection=true;";
     public static List<Pizza> GetAll()
     {
         using (SqlConnection db = new SqlConnection(CONNECTION_STRING))
@@ -24,7 +23,7 @@ public static class BD
         using (SqlConnection db = new SqlConnection(CONNECTION_STRING))
         {
             string sp = "ListarPizzaXId";
-            return db.Query<Pizza>(sp, new { @Id = id }, commandType: CommandType.StoredProcedure);
+            return db.QueryFirstOrDefault<Pizza>(sp, new { @Id = id }, commandType: CommandType.StoredProcedure);
         }
     }
     public static int Insert(Pizza pizza)

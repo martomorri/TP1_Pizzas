@@ -36,11 +36,12 @@ namespace Pizzas.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, Pizza pizza)
         {
-            Pizza entity = BD.GetById(id);
+            Pizza entity;
             int RowsAffected;
             if (id != pizza.Id) return BadRequest();
             else
             {
+                entity = BD.GetById(id);
                 if (entity == null) return NotFound();
                 else
                 {
@@ -54,9 +55,9 @@ namespace Pizzas.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteById(int id)
         {
-            Pizza entity = BD.GetById(id);
+            Pizza pizza = BD.GetById(id);
             int RowsAffected;
-            if (entity == null) return NotFound();
+            if (pizza == null) return NotFound();
             else
             {
                 RowsAffected = BD.DeleteById(id);
