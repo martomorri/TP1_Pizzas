@@ -42,12 +42,13 @@ namespace Pizzas.API.Controllers
             else
             {
                 entity = BD.GetById(id);
+                Console.WriteLine(entity.Nombre);
                 if (entity == null) return NotFound();
                 else
                 {
                     RowsAffected = BD.UpdateById(pizza);
                     if (RowsAffected > 0) return Ok(pizza);
-                    else return NotFound();
+                    else return Ok(pizza);
                 }
             }
         }
